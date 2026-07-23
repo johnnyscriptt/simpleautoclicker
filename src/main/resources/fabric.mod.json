@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "simpleautoclicker",
+  "version": "${version}",
+  "name": "Simple Autoclicker",
+  "description": "Toggleable left/right autoclicking with per-button timings and an in-game settings screen.",
+  "authors": [
+    "johnnyscriptt"
+  ],
+  "contact": {
+    "homepage": "https://github.com/johnnyscriptt/simpleautoclicker",
+    "sources": "https://github.com/johnnyscriptt/simpleautoclicker",
+    "issues": "https://github.com/johnnyscriptt/simpleautoclicker/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/simpleautoclicker/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "io.github.johnnyscriptt.simpleautoclicker.client.SimpleAutoclickerClient"
+    ]
+  },
+  "mixins": [
+    {
+      "config": "simpleautoclicker.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "fabric-api": "*",
+    "minecraft": "~26.2",
+    "java": ">=25"
+  }
+}

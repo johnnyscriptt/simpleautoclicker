@@ -1,0 +1,16 @@
+{
+  "key.simpleautoclicker.toggle_left": "Toggle Left Autoclick",
+  "key.simpleautoclicker.toggle_right": "Toggle Right Autoclick",
+  "key.simpleautoclicker.settings": "Autoclicker Settings",
+  "key.category.simpleautoclicker.main": "Simple Autoclicker",
+  "simpleautoclicker.toggle.left_on": "Left autoclick: ON",
+  "simpleautoclicker.toggle.left_off": "Left autoclick: OFF",
+  "simpleautoclicker.toggle.right_on": "Right autoclick: ON",
+  "simpleautoclicker.toggle.right_off": "Right autoclick: OFF",
+  "simpleautoclicker.settings.title": "Simple Autoclicker Settings",
+  "simpleautoclicker.settings.left_interval": "Left: %s ms",
+  "simpleautoclicker.settings.right_interval": "Right: %s ms",
+  "simpleautoclicker.settings.seconds": "Sec:",
+  "simpleautoclicker.settings.millis": "Ms:",
+  "simpleautoclicker.settings.done": "Done"
+}
