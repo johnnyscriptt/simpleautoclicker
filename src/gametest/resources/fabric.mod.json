@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "simpleautoclicker-gametest",
+  "version": "1.0.0",
+  "name": "Simple Autoclicker store shots",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-client-gametest": [
+      "io.github.johnnyscriptt.simpleautoclicker.gametest.StoreShotsGameTest"
+    ]
+  },
+  "depends": {
+    "simpleautoclicker": "*"
+  }
+}

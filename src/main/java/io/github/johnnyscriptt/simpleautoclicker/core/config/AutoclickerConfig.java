@@ -16,6 +16,13 @@ public final class AutoclickerConfig {
 
     public int leftIntervalMs = DEFAULT_INTERVAL_MS;
     public int rightIntervalMs = DEFAULT_INTERVAL_MS;
+    /** Opt-in; files from versions without the field load it as false. */
+    public boolean keepRunningUnfocused;
+
+    /** Skip vanilla's pause-on-focus-loss only when opted in and something is clicking or holding. */
+    public boolean shouldSuppressFocusPause(boolean anyActive) {
+        return keepRunningUnfocused && anyActive;
+    }
 
     public void clamp() {
         leftIntervalMs = clampMs(leftIntervalMs);

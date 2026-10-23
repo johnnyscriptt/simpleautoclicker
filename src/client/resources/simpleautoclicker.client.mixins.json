@@ -4,7 +4,8 @@
   "package": "io.github.johnnyscriptt.simpleautoclicker.client.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "MinecraftInvoker"
+    "MinecraftInvoker",
+    "PauseIfInactiveMixin"
   ],
   "injectors": {
     "defaultRequire": 1

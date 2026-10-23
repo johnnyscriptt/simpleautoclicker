@@ -22,12 +22,25 @@ loom {
     }
 }
 
+// Store screenshots (src/gametest): builds small scenes, drives the real keybinds and
+// screens, and captures them for the store pages. Run with: gradlew runClientGameTest
+// The gametest source set is not part of the shipped jar.
+fabricApi {
+    configureTests {
+        createSourceSet = true
+        modId = "simpleautoclicker-gametest"
+        enableGameTests = false
+        enableClientGameTests = true
+        eula = true
+    }
+}
+
 repositories {
     // Loom adds the Minecraft/Fabric mavens automatically.
 }
 
 dependencies {
-    // Minecraft 26.2 ships unobfuscated — no Yarn/mappings dependency needed.
+    // Minecraft 26.3 ships unobfuscated — no Yarn/mappings dependency needed.
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"

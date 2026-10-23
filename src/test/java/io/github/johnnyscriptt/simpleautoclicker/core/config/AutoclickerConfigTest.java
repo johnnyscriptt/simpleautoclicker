@@ -3,6 +3,8 @@ package io.github.johnnyscriptt.simpleautoclicker.core.config;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class AutoclickerConfigTest {
 
@@ -69,6 +71,21 @@ class AutoclickerConfigTest {
         assertEquals(2, AutoclickerConfig.ticksFromMs(76));   // 1.52 ticks
         assertEquals(1, AutoclickerConfig.ticksFromMs(10));   // rounds to 0, floors to 1
         assertEquals(1, AutoclickerConfig.ticksFromMs(0));
+    }
+
+    @Test
+    void keepRunningUnfocusedIsOffByDefault() {
+        assertFalse(new AutoclickerConfig().keepRunningUnfocused);
+    }
+
+    @Test
+    void focusPauseSuppressedOnlyWhenOptionOnAndSomethingActive() {
+        AutoclickerConfig config = new AutoclickerConfig();
+        assertFalse(config.shouldSuppressFocusPause(false));
+        assertFalse(config.shouldSuppressFocusPause(true));
+        config.keepRunningUnfocused = true;
+        assertFalse(config.shouldSuppressFocusPause(false));
+        assertTrue(config.shouldSuppressFocusPause(true));
     }
 
     @Test

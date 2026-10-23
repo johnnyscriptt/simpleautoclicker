@@ -5,6 +5,7 @@ import io.github.johnnyscriptt.simpleautoclicker.core.IntervalInput;
 import io.github.johnnyscriptt.simpleautoclicker.core.config.AutoclickerConfig;
 import net.minecraft.client.gui.components.AbstractSliderButton;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.CycleButton;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.StringWidget;
 import net.minecraft.network.chat.Component;
@@ -46,6 +47,12 @@ public final class AutoclickerSettingsScreen extends net.minecraft.client.gui.sc
         y += ROW_H + GAP;
         rightRow = new IntervalRow(x, y, "simpleautoclicker.settings.right_interval",
                 () -> cfg.rightIntervalMs, v -> cfg.rightIntervalMs = v);
+        y += ROW_H + GAP;
+
+        addRenderableWidget(CycleButton.onOffBuilder(cfg.keepRunningUnfocused)
+                .create(x, y, ROW_W, ROW_H,
+                        Component.translatable("simpleautoclicker.settings.keep_running_unfocused"),
+                        (btn, on) -> cfg.keepRunningUnfocused = on));
         y += ROW_H + GAP + 8;
 
         addRenderableWidget(Button.builder(Component.translatable("simpleautoclicker.settings.done"),

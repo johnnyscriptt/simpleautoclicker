@@ -21,6 +21,10 @@ public class SimpleAutoclickerClient implements ClientModInitializer {
             new KeyMapping("key.simpleautoclicker.toggle_left", InputConstants.KEY_COMMA, CATEGORY);
     public static final KeyMapping TOGGLE_RIGHT_KEY =
             new KeyMapping("key.simpleautoclicker.toggle_right", InputConstants.KEY_PERIOD, CATEGORY);
+    public static final KeyMapping HOLD_LEFT_KEY =
+            new KeyMapping("key.simpleautoclicker.hold_left", InputConstants.KEY_LBRACKET, CATEGORY);
+    public static final KeyMapping HOLD_RIGHT_KEY =
+            new KeyMapping("key.simpleautoclicker.hold_right", InputConstants.KEY_RBRACKET, CATEGORY);
     public static final KeyMapping SETTINGS_KEY =
             new KeyMapping("key.simpleautoclicker.settings", InputConstants.KEY_SEMICOLON, CATEGORY);
 
@@ -28,6 +32,8 @@ public class SimpleAutoclickerClient implements ClientModInitializer {
     public void onInitializeClient() {
         KeyMappingHelper.registerKeyMapping(TOGGLE_LEFT_KEY);
         KeyMappingHelper.registerKeyMapping(TOGGLE_RIGHT_KEY);
+        KeyMappingHelper.registerKeyMapping(HOLD_LEFT_KEY);
+        KeyMappingHelper.registerKeyMapping(HOLD_RIGHT_KEY);
         KeyMappingHelper.registerKeyMapping(SETTINGS_KEY);
 
         ClientTickEvents.END_CLIENT_TICK.register(mc -> {
@@ -41,6 +47,16 @@ public class SimpleAutoclickerClient implements ClientModInitializer {
             while (TOGGLE_RIGHT_KEY.consumeClick()) {
                 if (inWorld) {
                     controller.toggleRight(mc);
+                }
+            }
+            while (HOLD_LEFT_KEY.consumeClick()) {
+                if (inWorld) {
+                    controller.toggleHoldLeft(mc);
+                }
+            }
+            while (HOLD_RIGHT_KEY.consumeClick()) {
+                if (inWorld) {
+                    controller.toggleHoldRight(mc);
                 }
             }
             while (SETTINGS_KEY.consumeClick()) {
